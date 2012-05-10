@@ -1,0 +1,7 @@
+define([
+  'Underscore',
+  'Backbone'
+], function(_, Backbone) {
+  var templateModel = Backbone.Model.extend({});
+  return templateModel;
+});

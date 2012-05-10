@@ -1,0 +1,16 @@
+define([
+  'Underscore',
+  'Backbone'
+], function(_, Backbone) {
+  var promoModel = Backbone.Model.extend({
+    defaults: {},
+    validate: function(attrs){
+    	if ( attrs.offerCode.length != 6 ) {
+		  return "promo code must be 6 digits";
+		}
+	},
+    url: '/cigna-Web/retail/demographics',
+    initialize: function () {}
+  });
+  return promoModel;
+});

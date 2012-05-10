@@ -1,0 +1,24 @@
+{
+	"sideNav": [
+    	{
+	        "linkName": "BackboneJS",
+	        "linkURL": "http://www.backbonejs.org"
+	    },
+	    {
+	        "linkName": "RequireJS",
+	        "linkURL": "http://www.requirejs.org"
+	    },
+	    {
+	        "linkName": "Bootstrap, by Twitter",
+	        "linkURL": "http://twitter.github.com/bootstrap/"
+	    },
+	    {
+	        "linkName": "Mustache",
+	        "linkURL": "http://mustache.github.com"
+	    },
+	    {
+	        "linkName": "jquery",
+	        "linkURL": "http://www.jquery.com"
+	    }
+	]
+}

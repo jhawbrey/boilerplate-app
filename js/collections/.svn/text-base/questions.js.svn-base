@@ -1,0 +1,16 @@
+define([
+  'jquery',
+  'Underscore',
+  'Backbone',
+  'models/question'
+], function($, _, Backbone, questionModel){
+  var plansCollection = Backbone.Collection.extend({
+    model: questionModel,
+    initialize: function(){
+
+    }
+
+  });
+ 
+  return new questionsCollection;
+});

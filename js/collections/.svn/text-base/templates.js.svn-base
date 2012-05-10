@@ -1,0 +1,54 @@
+define([
+  'jquery',
+  'Underscore',
+  'Backbone',
+  'models/template'
+], function($, _, Backbone, templateModel){
+  var templateCollection = Backbone.Collection.extend({
+    model: templateModel,
+
+    
+    fetchURL: function(template){
+		var self = this;
+		$.ajax({
+		    type: "GET",
+		    cache: false,
+		    //url: '/cigna-Web/landingPageImage.json',
+		    url: '/cigna-Web/'+template+'.json',
+		    async: false,
+		    dataType: "json",
+		    data: {  },
+		    success: function (data, textStatus, jqXHR) {	//--> ON SUCCESS, UPDATE MODEL
+		    	if(data) {
+		    		//self.fetchTemplate(data.URL);			//--> call fetchTemplate() with URL of template
+		    			self.add(data);		    		
+		    	}
+		    },
+		    error: function (jqXHR, textStatus, errorThrown) { alert(errorThrown);}
+		});
+    },
+    
+    fetchTemplate: function(url) {
+    	var self = this;
+    	$.ajax({
+		    type: "GET",
+		    cache: false,
+		    url: url,
+		    async: false,
+		    dataType:"html",
+		    data: {  },
+		    success: function (html, textStatus, jqXHR) {	//--> ON SUCCESS, UPDATE MODEL
+		    	if(html) {
+		    			self.add({'html': html});
+		    	}
+		    }
+		});
+    }
+  });
+ 
+  return new templateCollection;
+});
+
+
+
+

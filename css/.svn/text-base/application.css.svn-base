@@ -1,0 +1,101 @@
+/***************************/
+/****	BUTTON STYLE	****/
+/***************************/
+div.btnCnt { margin:0; padding:0; height:24px; background:url(../images/ui/btnTile.gif) repeat-x; float:right; }
+    div.btnCnt div.btnWrap { margin:0; padding:0; height:24px; background:url(../images/ui/btnLeft.gif) no-repeat top left; width:100%; }
+        div.btnCnt div.btnWrap button { margin:0; padding:0; height:24px; background:url(../images/ui/btnRight.gif) no-repeat top right; border:0; text-align:center; color:#fff; width:100%; cursor:pointer; font:bold 10px/13px Arial, Helvetica, sans-serif; text-transform:uppercase;  }
+
+button { float:right; width:110px; clear:right; border-radius:5px; background:#3cb6fb; margin:0; padding:0; height:24px; border:0; text-align:center; color:#fff; cursor:pointer; font:bold 10px/13px Arial, Helvetica, sans-serif; text-transform:uppercase;}
+
+.cntPromo, .cntRates { width:550px; margin:0 auto; }
+	.cntPromo h1, #cntRates h1 { font: 31px "Palatino Linotype","Book Antiqua",Palatino,serif; padding: 17px 0; }
+.imgCnt { width:300px; float:left; }
+
+.cntPromo .colRight { width:250px; float:right; }
+.cntPromo .colRight p { padding:0 0 9px 0; }
+.cntPromo .colRight form { width:220px; float:left; }
+	
+	.cntPromo .colRight form label, div.label { display:block; text-align:right; margin:13px 0; padding:0 3px 0 0; }
+		.cntPromo .colRight form label span, div.label span { float:left; text-align:right; width:100px; padding: 0 10px 0 0; }
+		.cntPromo .colRight form label input { width:100px; }
+	
+	div.label label { margin:0 !important; width:55px; float:left; }
+		div.label label input { width:25px !important; float:left; }
+		
+
+
+#cntRates {}
+	#cntRates #colMain {}
+		#cntRates #colMain table { width:100%; }
+			#cntRates #colMain table tr {}
+				#cntRates #colMain table tr th { font-weight:bold; text-align:left; padding:3px; background:#ccc; }
+				#cntRates #colMain table tr td { padding:3px; background:#efefef;}
+
+div.alert { padding-top:5px; color:red; }
+
+
+/***************************/
+/****	LANDING STYLE	****/
+/***************************/
+#landingTemplate { width:100%; background:url(../images/bgTop.gif) repeat-x; }
+
+#landingTemplate .wrapper { padding:19px 0 0 0; width:960px; margin:0 auto; }
+#landingTemplate .header { width:100%; }
+#landingTemplate .header h1 { background: url("../images/logo.gif") no-repeat scroll 10px 0 transparent; float: left; height: 50px; margin: 0; padding: 0 0 0 25px; width: 153px; }
+#landingTemplate .header h1 a { display: block; height: 0 !important; margin: 0; overflow: hidden; padding: 50px 0 0; width: 153px; }
+#landingTemplate .header p.tagline { margin:0; padding:5px 0 0 10px; clear:left; font-size:11px; color:#fff; }
+#landingTemplate .navMain ul { margin:10px 0 0 0; padding:0; }
+#landingTemplate .navMain ul li { border-right: 1px solid #C9C9C9; float:left; display:block; list-style-type:none; margin:0; padding:15px 0; width:150px; text-align:center; font-size:16px; font-weight:bold; background-color:#fff; }
+#landingTemplate .navMain ul li a:link, #landingTemplate .navMain ul li a:visited { color:#555; text-decoration:none; }
+#landingTemplate .navMain ul li a:hover, #landingTemplate .navMain ul li a:active { color:#3cb6fb; text-decoration:none; }
+#landingTemplate .navMain ul li.first { border-top-left-radius:5px; }
+	#landingTemplate .navMain ul li.last { border-top-right-radius:5px; border-left:1px solid:#c9c9c9; border:right:0; }
+#landingTemplate .bodyWrap { background-color:#fff; border-top:4px solid #3cb6fb; border-right:1px solid #ccc; border-bottom:4px solid #3cb6fb; border-left:1px solid #ccc; box-shadow:0 4px 15px 0 #d3d3d3; }
+#landingTemplate .bodyWrap a:link, #landingTemplate .bodyWrap a:visited { color:#3cb6fb; text-decoration:none; }
+#landingTemplate .bodyWrap a:hover, #landingTemplate .bodyWrap a:active {color:#3cb6fb; text-decoration:underline; }
+#landingTemplate .railLeft { width:180px; float:left; padding:30px 0 0 20px; }
+#landingTemplate .railLeft ul { margin:0; padding:0; font-size:11px; }
+#landingTemplate .railLeft ul li {list-style-type:none; margin:2px 0; }
+
+#landingTemplate .content { width:600px; float:left; padding:0 0 30px 0; }
+#landingTemplate .railRight { background:#d9e042; padding:5px; width:148px; float:right; }
+#landingTemplate .railRight h3 { text-align:center; }
+#landingTemplate .railRight p { font-size:10px; padding:0 15px; }
+
+/***************************/
+/****	LANDING2 STYLE	****/
+/***************************/
+#landingTemplate2 { width:100%; background:url(../images/bgTop.gif) repeat-x; }
+
+#landingTemplate2 .wrapper { padding:19px 0 0 0; width:960px; margin:0 auto; }
+#landingTemplate2 .header { width:100%; }
+#landingTemplate2 .header h1 { background: url("../images/logo.gif") no-repeat scroll 10px 0 transparent; float: left; height: 50px; margin: 0; padding: 0 0 0 25px; width: 153px; }
+#landingTemplate2 .header h1 a { display: block; height: 0 !important; margin: 0; overflow: hidden; padding: 50px 0 0; width: 153px; }
+#landingTemplate2 .header p.tagline { margin:0; padding:5px 0 0 10px; clear:left; font-size:11px; color:#fff; }
+#landingTemplate2 .navMain ul { margin:10px 0 0 0; padding:0; }
+#landingTemplate2 .navMain ul li { border-right: 1px solid #C9C9C9; float:left; display:block; list-style-type:none; margin:0; padding:15px 0; width:150px; text-align:center; font-size:16px; font-weight:bold; background-color:#fff; }
+#landingTemplate2 .navMain ul li a:link, #landingTemplate2 .navMain ul li a:visited { color:#555; text-decoration:none; }
+#landingTemplate2 .navMain ul li a:hover, #landingTemplate2 .navMain ul li a:active { color:#3cb6fb; text-decoration:none; }
+#landingTemplate2 .navMain ul li.first { border-top-left-radius:5px; }
+	#landingTemplate2 .navMain ul li.last { border-top-right-radius:5px; border-left:1px solid:#c9c9c9; border:right:0; }
+#landingTemplate2 .bodyWrap { background:#fff url(../images/cigna-template2.png); border-top:4px solid #3cb6fb; border-right:1px solid #ccc; border-bottom:4px solid #3cb6fb; border-left:1px solid #ccc; box-shadow:0 4px 15px 0 #d3d3d3; }
+#landingTemplate2 .bodyWrap a:link, #landingTemplate2 .bodyWrap a:visited { color:#3cb6fb; text-decoration:none; }
+#landingTemplate2 .bodyWrap a:hover, #landingTemplate2 .bodyWrap a:active {color:#3cb6fb; text-decoration:underline; }
+
+#landingTemplate2 .content { width:780px; float:left; padding:0 0 30px 0; }
+#landingTemplate2 .railRight { background:#3cb6fb; padding:5px; width:148px; height:376px; float:right;  }
+#landingTemplate2 .railRight h3 { text-align:center; }
+#landingTemplate2 .railRight p { font-size:10px; padding:0 15px; }
+
+#landingTemplate2 .cntPromo { width:610px; margin:60px auto 0 auto; color:#fff; }
+	#landingTemplate2 .cntPromo h1 { font: 31px "Palatino Linotype","Book Antiqua",Palatino,serif; padding: 17px 0; }
+
+#landingTemplate2 .cntPromo .colRight { width:250px; float:right; }
+#landingTemplate2 .cntPromo .colRight p { font-size: 14px; font-weight:bold; padding:0 0 5px 0; }
+
+
+/*** CLEAR YOUR FLOATS ***/
+.clearfix:after { content: ".";  display: block;  height: 0;  clear: both;  visibility: hidden; }
+.clearfix {display: inline-block;}
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}

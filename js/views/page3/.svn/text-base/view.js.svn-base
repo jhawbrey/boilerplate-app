@@ -1,0 +1,52 @@
+// Filename: views/questions/view
+define([
+	'jquery',
+	'Underscore',
+	'Backbone',
+	'Mustache',
+	'text!templates/questions/questions.html'
+], function($, _, Backbone, Mustache, questionListTemplate){
+  	var questionListView = Backbone.View.extend({
+    	el: $("#page"),
+    	initialize: function(){
+    },
+ 
+	template: function(items){
+      	//return $("#promoTemplate").tmpl(items);
+		//var promotmpl = $('#promoTemplate').html();
+		return Mustache.to_html(questionListTemplate, items);
+		
+    },
+
+    render: function(){
+		//var response =  {"prospectId":1,"firstName":"Jack","lastName":"Daniels","address":"311 E County Line Rd # 20","city":"Littleton","state":"CO","zip":"80122-8102","segment":"Individual","offerCode":"000008","campaignID":"IFP102","fileName":"11-09-2011_11-42-09-IFP_Prospects.txt", "personalizedThemeCode": "blue-theme"}
+		var response;
+      	//if ( !response ) return;
+      	this.el.html(this.template(response));
+    },
+
+	events: {
+	  //"submit #zipForm": "getPlans",
+	},
+
+	getPlans: function(e){  
+		e.preventDefault();
+	  	//var value = $('#zipInput').val();
+
+	  	if (value) {
+			//Backbone.history.navigate("/plans/" + value, true);
+		}
+	  //this.input.val("");
+	  //this.input.focus();
+	}
+
+/*
+	render: function(){
+	var data =  {"prospectId":1,"firstName":"Jack","lastName":"Daniels","address":"311 E County Line Rd # 20","city":"Littleton","state":"CO","zip":"80122-8102","segment":"Individual","offerCode":"000008","campaignID":"IFP102","fileName":"11-09-2011_11-42-09-IFP_Prospects.txt", "personalizedThemeCode": "blue-theme"}
+      var compiledTemplate = _.template( promoListTemplate, data );
+      this.el.html( compiledTemplate ); 
+    }
+*/
+  });
+  return new questionListView;
+});

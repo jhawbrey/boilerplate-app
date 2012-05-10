@@ -1,0 +1,93 @@
+// Filename: views/promo/view
+
+define([																	// Define module and it's dependencies
+  'jquery',
+  'Underscore',
+  'Backbone',
+	'Mustache',
+	'models/promo',
+	'collections/templates',
+	'collections/promos',
+  'text!templates/promo/promo.html'
+], function($, _, Backbone, Mustache, promoModel, templatesCollection, promosCollection, promoListTemplate){
+  var promoListView = Backbone.View.extend({								// Create view for home page
+    el: $("#page"),															// Define parent container for home page
+	
+    initialize: function(){													// Instantiate data collections
+		//_.bindAll(this, 'render');
+		this.model = promoModel;
+		this.collection = promosCollection;
+		this.tmpCollection = templatesCollection;
+		this.collection.bind('change', this.render);						// Bind event listener to CHANGE event for tmpCollection	
+    },
+ 
+  
+	template: function(response){												// Get Mustache template and pass response to it
+		return Mustache.to_html(response.template);
+    },
+    
+    component: function(response, data) {
+    	
+    	if ( !data ) { 													// Add qDisplay to items object to figure out if we need to display the questions
+    		return Mustache.to_html(response.component);
+      	} else {
+
+      		if (!data.attributes.questions) {
+          		data.attributes.qDisplay = false;
+          	} else {
+          		data.attributes.qDisplay = true;
+          	}
+
+      		return Mustache.to_html(response.component, data.attributes);
+      	}
+      	
+    	
+    },
+
+    render: function(){														// Method to fetch data and render view to DOM
+    	var template;
+		var module;
+		this.tmpCollection.fetchURL('promo');
+		template = _.last(this.tmpCollection.models);
+		module = template.attributes.components;
+		this.el.html(this.template(template.attributes));
+		
+		var offerCode = _.last(window.location.href.split('/'));
+		
+		this.collection.fetchPromo(offerCode);
+		
+		for(key in module) {
+			var obj = module[key];
+			var domLoc = '.' + obj.componentName;
+			
+			if(obj.componentName == 'content') {
+				
+				$(domLoc).html(this.component(obj, _.last(this.collection.models)));
+			} else {
+				$(domLoc).html(this.component(obj));
+			}
+		}
+		
+		$('#zipInput').focus();
+    },
+
+	events: {																// Define event and Methods to listen for
+	  "submit #zipForm": "getQuestions",
+	  "click button": "getQuestions"
+	},
+
+	getQuestions: function(e){  											// Method to handle form submission
+		e.preventDefault();
+	  	var value = $('#zipInput').val();
+/***
+	  	if (value) {
+			Backbone.history.navigate("!/questions/" + value, true);
+		}
+	  //this.input.val("");
+	  //this.input.focus();
+***/
+	
+	}
+  });
+  return new promoListView;
+});

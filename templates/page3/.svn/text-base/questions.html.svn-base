@@ -1,0 +1,22 @@
+<div id="cntRates" class="clearfix">
+	<h1>Health Care Solutions</h1>
+	<div id="colMain">
+		<form id="questionForm" action="">
+			<table>
+				<tr>
+					<th>Question</th>
+					<th>&nbsp;</th>
+				</tr>
+				<tr>
+					<td>Do you smoke?</td>
+					<td>
+						<label><input id="smoke" type="radio" value="yes" name="smoke" /> Yes</label>
+						<label><input id="smoke" type="radio" value="no" name="smoke" checked="checked"/> No</label>
+					</td>
+				</tr>
+			</table>
+		</form>
+		<!--<div class="btnCnt btnQuote"><div class="btnWrap"><button class="go" name="go">Get a Quote</button></div></div>-->
+
+	</div>
+</div>

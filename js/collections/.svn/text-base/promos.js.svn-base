@@ -1,0 +1,77 @@
+define([
+  'jquery',
+  'Underscore',
+  'Backbone',
+  'models/promo'
+], function($, _, Backbone, promoModel){
+  var promosCollection = Backbone.Collection.extend({
+    model: promoModel,
+    initialize: function(){},
+    
+  //--> MAKE SERVICE CALL TO FETCH JSON OBJECT
+	fetchPromo: function(offerCode){
+		var self = this;
+		
+		if(offerCode) {
+			$.ajax({
+			    type: "post",
+			    cache: false,
+			    url: '/cigna-Web/retail/demographics',
+			    async: false,
+			    dataType: "json",
+			    data: { offerCode: offerCode },
+			    success: function (data, textStatus, jqXHR) {	//--> ON SUCCESS, FORMAT ZIP and UPDATE MODEL
+			    	if(data) {
+				    	if(data.zip) {
+				    		data.zip = data.zip.substring(0,5);
+				    	}
+		
+				    	//self.reset(data);
+				    	self.fetchQuestion(data);
+			    	}
+			    },
+				error: function (jqXHR, textStatus, errorThrown) {
+					for (var key in jqXHR) {
+					   var obj = jqXHR[key];
+					   for (var prop in obj) {
+					      //console.log('jqXHR: ' + prop + " = " + obj[prop]);
+					   }
+					}
+	            }
+			});		
+		}
+	},
+	
+	fetchQuestion: function(response){
+		var self = this;
+
+		$.ajax({
+		    type: "post",
+		    cache: false,
+		    url: '/cigna-Web/retail/listProducts/',
+		    async: false,
+		    dataType: "json",
+		    data: { zipCode: response.zip, hasAnsweredQuestions: false },
+		    success: function (data, textStatus, jqXHR) {	//--> ON SUCCESS, UPDATE MODEL WITH QUESTION
+		    /*** THIS BLOCK DEALS WITH MULTIPLE QUESTIONS
+		    	var arr = [];
+		    	for (var i in data) {
+		    		var q = {};
+		    		q['question'] = data[i];
+		    		q['index'] = i;
+		    		arr[i] = q;
+		    	}
+		    			    	
+		    	data = {"questions": arr};
+		    ***/
+		    	//data = {"questions": data['1']};
+		    	response.questions = data['1'];
+		    	self.add(response);
+		    },
+			error: function (jqXHR, textStatus, errorThrown) {}
+		});
+	}
+  });
+ 
+  return new promosCollection;
+});

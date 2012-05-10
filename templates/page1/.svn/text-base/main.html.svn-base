@@ -1,0 +1,15 @@
+<div id="landing">
+  	<div id="cntPromo" class="clearfix">
+		<h1>Health Care Solutions</h1>
+		<div id="imgCnt">
+			<img src="{{URL}}" width="280" height="276" border="0" title="Young family" />
+		</div>
+		<div id="colRight">
+			<p>Please enter your Promo Code</p>
+			<form id="promoForm" action="#/plans">
+				<label for="promo"><span>Promo Code:</span><input type="text" id="promoInput" name="promo" value="" /></label>
+				<div class="btnCnt btnQuote"><div class="btnWrap"><button class="go" name="go">Get a Quote</button></div></div>
+			</form>
+		</div>
+	</div>
+</div>

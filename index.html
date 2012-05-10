@@ -1,0 +1,134 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+
+  	<!-- Use the .htaccess and remove these lines to avoid edge case issues.
+       More info: h5bp.com/i/378 -->
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  	<title></title>
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  	<meta name="description" content="">
+  	<meta name="author" content="">
+	
+
+	<style>
+      	body {
+			padding-top: 60px;
+			padding-bottom: 40px;
+		}
+		.sidebar-nav {
+			padding: 9px 0;
+		}
+    </style>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/app.css">
+	
+  	<!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
+
+  	<!-- All JavaScript at the bottom, except this Modernizr build.
+       Modernizr enables HTML5 elements & feature detects for optimal performance.
+       Create your own custom Modernizr build: www.modernizr.com/download/ -->
+	<link rel="dns-prefetch" href="//ajax.googleapis.com" />
+	<script src="js/modernizr-2.5.3.min.js"></script>
+</head>
+<body>
+  <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+  	<div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Boiler App</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="#!/page1">Home</a></li>
+              <li><a href="#!/page2">Page 2</a></li>
+              <li><a href="#!/page3">Page 3</a></li>
+				<li><a class="openModal" href="#modal" data-toggle="modal">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+		<div id="page">
+      		
+		</div> <!-- /page -->
+		
+		<hr>
+		
+		<footer>
+    		<ul class="nav">
+              	<li><a href="#!/page1">Home</a></li>
+              	<li><a href="#!/page2">Page 2</a></li>
+              	<li><a href="#!/page3">Page 3</a></li>
+				<li><a class="openModal" href="#modal" data-toggle="modal">Contact</a></li>
+				<li class="copy">&copy; 2012 This Here Co. All rights reserved.</li>
+            </ul>
+  		</footer>
+
+    </div> <!-- /container -->
+	
+	
+	<!-- /modals -->
+	
+	<div class="modal hide fade" id="modal"></div>
+	<div class="modal hide fade" id="contact">
+		<div class="modal-header">
+			<a class="close" data-dismiss="modal">×</a>
+			<h3>Contact Form</h3>
+		</div>
+		<div class="modal-body">
+			<div class="well">
+				<ol>
+					<li>
+						<input type="text" name="email" class="input email" placeholder="name@domain.com" required autofocus />
+					</li>
+					<li>
+						<textarea id="message" name="message" rows="5" placeholder="What would you like to say?" required></textarea>
+					</li>
+				</ol>
+		    </div>
+		</div>
+		<div class="modal-footer">
+			<a href="#" class="btn btn-primary">Save changes</a>
+			<a href="#" class="btn" data-dismiss="modal">Close</a>
+		</div>
+	</div>
+
+  <!-- JavaScript at the bottom for fast page loading -->
+	<script src="js/libs/require/require.js"></script>
+	<script>
+		require({
+	        baseUrl: 'js',
+	        paths: {
+	            jquery: 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min'
+	        },
+	        priority: ['jquery']
+	    }, ['main']);
+	</script>	
+
+  <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
+       mathiasbynens.be/notes/async-analytics-snippet
+  <script>
+    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+  </script>
+-->
+</body>
+</html>

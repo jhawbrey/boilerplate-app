@@ -1,0 +1,39 @@
+// Filename: router.js
+define([
+	'jquery',
+	'Underscore',
+	'Backbone',
+	'views/home/view',
+	'views/promo/view',
+	'views/questions/view'
+], function($, _, Backbone, mainHomeView, promoListView, questionListView ){
+  var AppRouter = Backbone.Router.extend({
+    routes: {
+      	// Define some URL routes
+      	'!/promo/:id': 'showPromo',
+		'!/questions/:id': 'showQuestions',
+      
+      	// Default
+      	'*actions': 'defaultAction'
+    },
+	showQuestions: function(id){
+      	questionListView.render();
+    },
+    showPromo: function(id){
+      	promoListView.render();
+    },
+    defaultAction: function(actions){
+      // We have no matching route, lets display the home page 
+      mainHomeView.render(); 
+    }
+  });
+
+  var initialize = function(){
+	Backbone.emulateJSON = true;
+    var app_router = new AppRouter;
+    Backbone.history.start({root: '/cigna-Web/retail/index'});
+  };
+  return { 
+    initialize: initialize
+  };
+});

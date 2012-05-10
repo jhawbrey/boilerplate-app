@@ -1,0 +1,86 @@
+// Filename: views/home/view
+
+define([																	// Define module and it's dependencies
+  'jquery',
+  'Underscore',
+  'Backbone',
+  'collections/templates',
+  'collections/promos'
+], function($, _, Backbone, templatesCollection, promosCollection){
+
+	var mainHomeView = Backbone.View.extend({								// Create view for home page						
+    	el: $("#page"),														// Define parent container for home page
+
+    	initialize: function() {
+    		this.tmpCollection = templatesCollection;						// Instantiate data collections
+    		this.collection = promosCollection;								
+    		
+    		this.tmpCollection.bind('change', this.render);					// Bind event listener to CHANGE event for tmpCollection
+		},
+		
+		template: function(response) {										// Get Mustache template and pass response to it
+			//var model;
+			//if(_.size(this.tmpCollection.models) < 1) {
+			//	this.tmpCollection.fetchURL();
+			//}
+			//model = _.last(this.tmpCollection.models);
+			return Mustache.to_html(response.template);
+	    },
+	    
+	    component: function(response) {
+	    	return Mustache.to_html(response.component);
+	    },
+	    	
+		render: function(){													// Method to fetch data and render view to DOM
+			var model;
+			var prop;
+			//if(_.size(this.tmpCollection.models) < 1) {
+				this.tmpCollection.fetchURL('template2');
+				//this.tmpCollection.fetchURL('landingPageImage');
+
+			//}
+			model = _.last(this.tmpCollection.models);
+			prop = model.attributes.components;
+			this.el.html(this.template(model.attributes));
+			
+			for(key in prop) {
+				var obj = prop[key];
+				var domLoc = '.' + obj.componentName;
+				//for(node in obj) {
+					$(domLoc).html(this.component(obj));
+				//}
+			}
+			
+			$('#promoInput').focus();
+    	},
+
+		events: {															// Define events and Methods to listen for
+		  "submit #promoForm": "getPromo",
+		  "click button": "getPromo"
+		},
+
+		getPromo: function(e){  											// Method to handle form submission
+			e.preventDefault();
+		  	var value = $('#promoInput').val();
+		  	
+		  	if (value) {
+		  		var nav = this.collection.add(								// Add model to collection to validate promo code
+				  		{ offerCode: value },
+				  		{ error: function(model, error) {
+				  			if (!$('#promoForm label div.alert').length > 0) {
+								$('#promoForm label').append('<div class="alert">' + error + '</div>');
+							} else {
+								$('#promoForm label div.alert').html(error);
+							}
+				  		  	}
+				  		}
+				  	);
+				if (nav.length) {											// Check to see if validation passed
+					Backbone.history.navigate("!/promo/" + value, true);
+				}
+			}
+
+		}
+  	});
+  return new mainHomeView;
+});

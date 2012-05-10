@@ -1,0 +1,20 @@
+<div id="cntPromo" class="clearfix ${personalizedThemeCode}">
+	<h1>Health Care Solutions</h1>
+	<div id="imgCnt">
+		<img src="/cigna-Web/themes/{{personalizedThemeCode}}/pic.jpg" width="280" height="276" border="0" title="${segment}" />
+	</div>
+	<div id="colRight">
+		<p>Welcome {{firstName}},</p>
+		<p>Just enter the following information to receive a quote.</p>
+		<form id="zipForm" action="">
+			<label for="zip" class="clearfix"><span>Zip Code:</span><input type="text" id="zipInput" name="zip" value="{{zip}}" required autofocus /></label>
+			{{#qDisplay}}
+			<div class="label clearfix"><span>{{questions}}</span>
+				<label><input id="q{{index}}" type="radio" value="yes" name="q{{index}}" /> Yes</label>
+				<label><input id="q{{index}}" type="radio" value="no" name="q{{index}}" checked="checked"/> No</label>
+			</div>
+			{{/qDisplay}}
+			<button class="go" name="go">Get a Quote</button>
+		</form>
+	</div>
+</div>

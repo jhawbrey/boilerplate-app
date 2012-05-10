@@ -1,0 +1,3 @@
+To build, run the following command in the /build directory:
+
+node r.js -o app.build.js
