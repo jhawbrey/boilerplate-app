@@ -35,7 +35,7 @@
        Modernizr enables HTML5 elements & feature detects for optimal performance.
        Create your own custom Modernizr build: www.modernizr.com/download/ -->
 	<link rel="dns-prefetch" href="//ajax.googleapis.com" />
-	<script src="js/modernizr-2.5.3.min.js"></script>
+	<script src="js/libs/modernizr-2.5.3.min.js"></script>
 </head>
 <body>
   <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.
@@ -108,19 +108,8 @@
 			<a href="#" class="btn" data-dismiss="modal">Close</a>
 		</div>
 	</div>
-
-  <!-- JavaScript at the bottom for fast page loading -->
-	<script src="js/libs/require/require.js"></script>
-	<script>
-		require({
-	        baseUrl: 'js',
-	        paths: {
-	            jquery: 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min'
-	        },
-	        priority: ['jquery']
-	    }, ['main']);
-	</script>	
-
+	<script data-main="js/main" src="js/libs/require-jquery.js"></script>
+  
   <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
        mathiasbynens.be/notes/async-analytics-snippet
   <script>

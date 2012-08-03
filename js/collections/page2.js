@@ -1,7 +1,7 @@
 define([
   'jquery',
-  'Underscore',
-  'Backbone',
+  'underscore',
+  'backbone',
   'models/page2',
 	'pubsub'
 ], function($, _, Backbone, page2Model, pubsub){

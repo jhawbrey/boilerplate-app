@@ -1,9 +1,12 @@
 // Filename: router.js
 define([
 	'jquery',
-	'Underscore',
-	'Backbone'
-], function($, _, Backbone ){
+	'underscore',
+	'backbone',
+	'views/page1/view',
+	'views/page2/view',
+	'views/page3/view'
+], function($, _, Backbone, page1View, page2View, page3View ){
   var AppRouter = Backbone.Router.extend({
     routes: {
       	// Define some URL routes
@@ -15,29 +18,29 @@ define([
       	'*actions': 'defaultAction'
     },
 	page1: function(id){
-      	require(['views/page1/view'], function(page1View) {
+      	//require(['views/page1/view'], function(page1View) {
 			page1View.render();
 			markActiveLink();
-		});
+		//});
     },
     page2: function(id){
-      	require(['views/page2/view'], function(page2View) {
+      	//require(['views/page2/view'], function(page2View) {
 			page2View.fetchData();
 			markActiveLink();
-		});
+		//});
     },
     page3: function(actions){
-      	require(['views/page3/view'], function(page3View) {
+      	//require(['views/page3/view'], function(page3View) {
 			page3View.render();
 			markActiveLink();
-		});
+		//});
     },
 	defaultAction: function(actions){
       	// We have no matching route, lets display the home page 
-      	require(['views/page1/view'], function(page1View) {
+      	//require(['views/page1/view'], function(page1View) {
 			page1View.render();
 			markActiveLink();
-		});
+		//});
     }
   });
 

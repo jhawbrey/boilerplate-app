@@ -1,7 +1,7 @@
 define([
   'jquery',
-  'Underscore',
-  'Backbone',
+  'underscore',
+  'backbone',
   'models/modal'
 ], function($, _, Backbone, modalModel){
   var modalCollection = Backbone.Collection.extend({

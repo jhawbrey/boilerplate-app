@@ -1,9 +1,9 @@
 // Filename: views/page3/view
 define([
 	'jquery',
-	'Underscore',
-	'Backbone',
-	'Mustache',
+	'underscore',
+	'backbone',
+	'mustache',
 	'pubsub',
 	'views/modal/view',
 	'text!templates/page3/page3.html'

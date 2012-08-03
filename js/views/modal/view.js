@@ -1,12 +1,13 @@
 // Filename: views/modal/view
 define([
 	'jquery',
-	'Underscore',
-	'Backbone',
-	'Mustache',
+	'underscore',
+	'backbone',
+	'mustache',
 	'pubsub',
-	'collections/modal'
-], function($, _, Backbone, Mustache, pubsub, modalCollection){
+	'collections/modal',
+	'text!templates/modals/contact.html'
+], function($, _, Backbone, Mustache, pubsub, modalCollection, contactTemplate){
   	
 	$.fn.serializeObject = function(){  
   		var o = {};
@@ -36,11 +37,9 @@ define([
 			return Mustache.to_html(tmpl, items);
 	    },
 
-	    renderModal: function(template){
+	    renderModal: function(){
 	      	var self = this;
-			require(['text!templates/modals/' + template +'.html'], function(tmpl) {
-				self.$el.html(self.template(tmpl));
-			});
+			this.$el.html(self.template(contactTemplate));
 	    },
 
 		events: {

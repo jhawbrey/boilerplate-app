@@ -1,6 +1,6 @@
 define([
-  'Underscore',
-  'Backbone'
+  'underscore',
+  'backbone'
 ], function(_, Backbone) {
   var page1Model = Backbone.Model.extend({
     defaults: {},

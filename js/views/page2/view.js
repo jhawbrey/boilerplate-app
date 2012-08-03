@@ -2,9 +2,9 @@
 
 define([																	// Define module and it's dependencies
   'jquery',
-  'Underscore',
-  'Backbone',
-	'Mustache',
+  'underscore',
+  'backbone',
+	'mustache',
 	'collections/page2',
 	'pubsub',
 	'views/modal/view',

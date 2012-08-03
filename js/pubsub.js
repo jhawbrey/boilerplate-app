@@ -1,7 +1,7 @@
 define([
   'jquery',
-  'Underscore',
-  'Backbone'
+  'underscore',
+  'backbone'
 ], function($, _, Backbone){
   
 	var pubsub = _.extend({}, Backbone.Events);
