@@ -7,7 +7,7 @@ require.config({
     ],
 */
     jquery: 'libs/require-jquery',
-    mustache: 'libs/mustache',
+    handlebars: 'libs/handlebars',
     underscore: 'libs/underscore',
     backbone: 'libs/backbone',
     bootstrap: 'libs/bootstrap',

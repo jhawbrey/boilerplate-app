@@ -4,7 +4,7 @@ define([																	// Define module and it's dependencies
   'jquery',
   'underscore',
   'backbone',
-	'mustache',
+	'handlebars',
 	'collections/page2',
 	'pubsub',
 	'views/modal/view',
@@ -27,11 +27,13 @@ define([																	// Define module and it's dependencies
  
   
 	template: function(items){
-		return Mustache.to_html(page2Template, items);
+		var template = Handlebars.compile(page2Template);
+			return template(items);
     },
 
 	alertTemplate: function(items){
-		return Mustache.to_html(alertTemplate, items);
+		var template = Handlebars.compile(alertTemplate);
+			return template(items);
     },
 
 	fetchData: function() {

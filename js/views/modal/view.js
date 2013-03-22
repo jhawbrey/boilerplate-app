@@ -3,7 +3,7 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'mustache',
+	'handlebars',
 	'pubsub',
 	'collections/modal',
 	'text!templates/modals/contact.html'
@@ -34,7 +34,8 @@ define([
 		},
  
 		template: function(tmpl, items){
-			return Mustache.to_html(tmpl, items);
+			var template = Handlebars.compile(tmpl);
+			return template(items);
 	    },
 
 	    renderModal: function(){

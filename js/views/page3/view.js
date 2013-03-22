@@ -3,7 +3,7 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'mustache',
+	'handlebars',
 	'pubsub',
 	'views/modal/view',
 	'text!templates/page3/page3.html'
@@ -15,7 +15,8 @@ define([
 		template: function(items){
 	      	//return $("#promoTemplate").tmpl(items);
 			//var promotmpl = $('#promoTemplate').html();
-			return Mustache.to_html(page3Template, items);
+			var template = Handlebars.compile(page3Template);
+			return template(items);
 		
 	    },
 
